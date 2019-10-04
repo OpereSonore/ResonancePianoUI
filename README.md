@@ -1,2 +1,2 @@
-# ResonancePianoUI
+# ResonancePiano
 Resonance Piano User Interface
