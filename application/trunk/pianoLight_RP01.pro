@@ -65,7 +65,7 @@ DEFINES += APP_VERSION=\\\"$$VERSION\\\"
 
 # RP01 -> Resonance Piano v01
 # RF01 -> Resonane Fonico v01
-MODEL_NAME = RF01
+MODEL_NAME = RP01
 DEFINES += APP_MODEL_NAME=\\\"$$MODEL_NAME\\\"
 
 target.path = /home/pi/pianoLight

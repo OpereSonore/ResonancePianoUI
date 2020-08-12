@@ -14,7 +14,7 @@
 
 DEFINE_LOG_MODULE_NAME;
 
-#define UPDATE_FILE_NAME            "RP01.tar.gz"
+#define UPDATE_FILE_NAME          APP_MODEL_NAME ".tar.gz"
 
 /******************************************************************************/
 UpdateHandler &UpdateHandler::GetInstance(void)

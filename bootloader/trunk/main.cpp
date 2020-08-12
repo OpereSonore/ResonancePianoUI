@@ -72,6 +72,7 @@ int main(int argc, char *argv[])
 {
 	QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 	QProcess process;
+	QString  buffer;
 
 	QGuiApplication       app(argc, argv);
 	QQmlApplicationEngine engine;
@@ -91,7 +92,8 @@ int main(int argc, char *argv[])
 	Logger::GetInstance().Initialize(Logger::LOG_DEBUG);
 	PowerSupply::GetInstance().Initialize(27);
 
-	LOG("Application started");
+	buffer = QString("Application started  - %1").arg(APP_MODEL_NAME);
+	LOG(buffer);
 
 	engine.rootContext()->setContextProperty("update_handler", &UpdateHandler::GetInstance());
 

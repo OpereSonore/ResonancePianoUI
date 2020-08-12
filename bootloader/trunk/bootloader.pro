@@ -44,6 +44,11 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #else: unix:!android: target.path = /opt/$${TARGET}/bin
 #!isEmpty(target.path): INSTALLS += target
 
+# RP01 -> Resonance Piano v01
+# RF01 -> Resonane Fonico v01
+MODEL_NAME = RF01
+DEFINES += APP_MODEL_NAME=\\\"$$MODEL_NAME\\\"
+
 target.path = /home/pi/pianoLight
 INSTALLS += target
 

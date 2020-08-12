@@ -9,7 +9,7 @@ ApplicationWindow {
 	width: 800
 	height: 480
 	property alias flickable_text_box: flickable_text_box
-	title: qsTr("Bootloader v1.0.0")
+	title: qsTr("Bootloader v1.1.0")
 
 	property string background_start_gradient: "#323232"
 	property string background_stop_gradient: "#323232"
@@ -19,8 +19,7 @@ ApplicationWindow {
 	property string control_background_color: "#bdbebf"
 	property string handle_color: "#f0f0f0"
 
-	background: GradientEx {
-	}
+	background: GradientEx {}
 
 	ColumnLayout {
 		anchors.top: parent.top
@@ -45,8 +44,7 @@ ApplicationWindow {
 															  = text.length : cursorPosition = 0)
 			}
 
-			ScrollIndicator.vertical: ScrollIndicator {
-			}
+			ScrollIndicator.vertical: ScrollIndicator {}
 		}
 		RowLayout {
 			transformOrigin: Item.Center

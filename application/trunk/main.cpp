@@ -87,7 +87,13 @@ int main(int argc, char *argv[])
 	bool                  ok;
 	Equalizer::EQ_ID      eq_id;
 
-	app.setApplicationName("RESONANCE piano");
+	if (QString(APP_MODEL_NAME) == QString("RP01"))
+		app.setApplicationName("Resonance Piano GP 1.0");
+	else if (QString(APP_MODEL_NAME) == QString("RF01"))
+		app.setApplicationName("Resonance Piano UP 1.0");
+	else
+		ASSERT(false);
+
 	app.setApplicationVersion(QString(APP_VERSION));
 
 #if defined Q_OS_UNIX
@@ -144,7 +150,7 @@ int main(int argc, char *argv[])
 	PowerSupply::GetInstance().Initialize(17, 27);
 	Equalizer::GetInstance().SetEqId(eq_id);
 
-	buffer = QString("Application started  - %1 %2").arg(app.applicationName(), app.applicationVersion());
+	buffer = QString("Application started  - %1 %2 %3").arg(app.applicationName(), app.applicationVersion(), APP_MODEL_NAME);
 	LOG(buffer);
 
 #if defined Q_OS_UNIX

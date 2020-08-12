@@ -17,17 +17,17 @@ DEFINE_LOG_MODULE_NAME;
 #if defined Q_OS_UNIX
 #define UPDATE_FOLDER         "/home/pi/pianoLight/update/"
 
-#define UPDATE_FILE           "/home/pi/pianoLight/RP01.tar.gz"
+#define UPDATE_FILE           "/home/pi/pianoLight/" APP_MODEL_NAME ".tar.gz"
 #define UPDATE_SCRIPT         "/home/pi/pianoLight/update/update.sh"
 #define UPDATE_README         "/home/pi/pianoLight/update/readme.txt"
-#define ARCHIVED_FILE         "/home/pi/pianoLight/archive/RP01_%1.tar.gz"
+#define ARCHIVED_FILE         "/home/pi/pianoLight/archive/" APP_MODEL_NAME "_%1.tar.gz"
 #else
 #define UPDATE_FOLDER         "I:/pianoLight/update/"
 
-#define UPDATE_FILE           "I:/pianoLight/RP01.tar.gz"
+#define UPDATE_FILE           "I:/pianoLight/" APP_MODEL_NAME ".tar.gz"
 #define UPDATE_SCRIPT         "I:/pianoLight/update/update.sh"
 #define UPDATE_README         "I:/pianoLight/update/readme.txt"
-#define ARCHIVED_FILE         "I:/pianoLight/archive/RP01_%1.tar.gz"
+#define ARCHIVED_FILE         "I:/pianoLight/archive/" APP_MODEL_NAME "_%1.tar.gz"
 #endif
 
 /******************************************************************************/
@@ -79,7 +79,7 @@ void UpdateHandler::Initialize(void)
 #else
 			command = QString("7z x %1 -o%2 -r -aou").arg(UPDATE_FILE).arg(UPDATE_FOLDER);
 			ExecuteCommand(command);
-			command = QString("7z e %1 -o%2 -r -aou").arg(UPDATE_FILE_2).arg(UPDATE_FOLDER);
+			command = QString("7z e %1 -o%2 -r -aou").arg(UPDATE_FILE).arg(UPDATE_FOLDER);
 #endif
 			ExecuteCommand(command);
 			readme.setFileName(UPDATE_README);
@@ -256,7 +256,6 @@ void UpdateHandler::cancelButtonClick(void)
 		date_time = QDateTime::currentDateTime();
 		archived_file_name = QString(ARCHIVED_FILE).arg(date_time.toString("yyyyMMddhhmmsszzz"));
 		QFile::rename(UPDATE_FILE, archived_file_name);
-		QFile::remove(UPDATE_FILE);
 
 		qApp->quit();
 	}
